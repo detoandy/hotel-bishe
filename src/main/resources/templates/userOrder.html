@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>我的订单</title>
+    <link th:href="@{~/css/style.css}" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" th:src="@{~/js/tab.js}">
+    </script>
+
+    <script type="">
+        function phonecheck(s) {
+            var str = s;
+
+            if (!(/^1[3|5][0-9]\d{4,8}$/.test(s))) {
+
+                alert("您的电话输入不正确");
+                return false;
+            } else {
+
+                return true;
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+<div class="page">
+    <div class="page_con">
+        <div th:replace="inc/top::html" ></div>
+        <!----------------内容区开始-------------------->
+        <div class="sub_main">
+            <div class="sub_maincon">
+                <div class="sub_mainbox clearfix">
+
+
+                    <div class="m_border">
+                        <div class="m_title2">
+                            <h3>
+                                酒店预订
+                            </h3>
+                        </div>
+                        <div class="m_content message_con">
+                            <table width="98%" border="0" cellpadding="2" cellspacing="1"
+                                   bgcolor="#3333FF" align="center" style="margin-top: 8px">
+
+                                <tr align="center" bgcolor="#FAFAF1" height="22">
+
+                                    <td width="5%">
+                                        姓名
+                                    </td>
+                                    <td width="15%">
+                                        酒店
+                                    </td>
+                                    <td width="10%">
+                                        房间
+                                    </td>
+                                    <td width="5%">
+                                        房间数量
+                                    </td>
+
+
+                                    <td width="10%">
+                                        电话
+                                    </td>
+
+                                    <td width="10%">
+                                        入住时间
+                                    </td>
+
+                                    <td width="10%">
+                                        离开时间
+                                    </td>
+
+
+                                    <td width="5%">
+                                        房款
+                                    </td>
+                                    <td width="5%">
+                                        状态
+                                    </td>
+
+                                </tr>
+
+                                <tr align="center" bgcolor="#FAFAF1" height="22" th:each="order:${result.data}">
+                                    <td align="left">
+                                        <div align="center" th:text="${order.occupantName}">
+
+                                        </div>
+                                    </td>
+
+                                    <td align="left">
+                                        <div align="center" th:text="${order.hotelName}">
+                                        </div>
+                                    </td>
+
+                                    <td align="left">
+                                        <div align="center" th:text="${order.roomType}">
+                                        </div>
+                                    </td>
+
+                                    <td align="left">
+                                        <div align="center" th:text="${order.roomCount}">
+                                        </div>
+                                    </td>
+
+                                    <td align="left">
+                                        <div align="center" th:text="${order.userTel}">
+                                        </div>
+                                    </td>
+
+                                    <td align="left">
+                                        <div align="center" th:text="${order.startDate}">
+                                        </div>
+                                    </td>
+
+                                    <td align="left">
+                                        <div align="center" th:text="${order.expiryDate}">
+                                        </div>
+                                    </td>
+                                    <td align="left">
+                                        <div align="center" th:text="${order.paymentAmount}">
+                                        </div>
+                                    </td>
+
+                                    <td align="left">
+                                        <div align="center" th:text="${order.paymentState}">
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!----------------内容区结束-------------------->
+        <!---------------页脚开始---------------->
+        <div class="bottom">
+            <p>
+                <a href="" style="color:white" target="_blank">zhu</a>
+            </p>
+        </div>
+        <!---------------页脚结束---------------->
+    </div>
+</div>
+</body>
+</html>

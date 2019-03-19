@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <base href="<%=basePath%>">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>酒店预订系统</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="css/commons.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/tab.js"></script>
+    <script th:if="${indexData}==null">
+        // 查询数据 每次刷新页面就去查询数据
+        window.location.href="index";
+    </script>
+</head>
+<body>
+<div class="page">
+    <div class="page_con">
+    <!--  引入头部片段  -->
+     <div th:replace="inc/top::html" ></div>
+        <div id="wrapper">
+            <!--body start-->
+            <div id="body">
+                <!--ProductShow start-->
+                <div class="MainBlock">
+                    <div class="Solutions">
+                        <div class="topic">
+                            <div id="Solutionsdemo">
+                                <div id="Solutionsindemo">
+                                    <div id="Solutionsdemo1" th:each="hotel:${indexData.hotels}">
+                                       <!-- 查询酒店列表-->
+                                              <a th:href="${'jiu_detail.jsp?id='+hotel.id}" target="_blank" th:title="${hotel.name}">
+                                                <img th:src="${hotel.pic}" width="200" height="124" th:alt="${hotel.name}">
+                                              </a>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div id="Solutionsdemo2">
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="main">
+            <div class="main_con">
+                <div class="main_box clearfix">
+                    <div class="main_center">
+                        <div class="m_border">
+                            <div class="m_title2">
+                                <h3>
+                                    最新新闻
+                                </h3>
+                            </div>
+                            <div class="article_listbox">
+                                <!-- 新闻列表展示-->
+                               <ul th:each="article:${indexData.articles}">
+                                    <li>
+                                        <span class="time" th:text="${article.appuser+'&nbsp;&nbsp;&nbsp;&nbsp;'+article.date}"></span>
+                                        <a th:href="${'news_detail.jsp?id='+article.id}"  th:text="${article.title}"></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="m_border">
+                            <div class="m_title2">
+                                <h3>
+                                    留言
+                                </h3>
+                            </div>
+                            <div class="m_content">
+                                <!--  查询留言-->
+                                <div class="leave_mes" th:each="message:${indexData.messages}">
+                                    <p class="mes_info">
+                                        <span class="reply"><a href="#"></a></span>
+                                        <span th:text="${'留言人:'+message.appuser}"></span>
+                                        <span th:text="${'时间:'+message.date}"></span>
+                                    </p>
+                                    <div class="mes_con" th:text="${message.msg}"></div>
+                                </div>
+                                <div class="message_con">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!----------------内容区结束-------------------->
+        <!---------------页脚开始---------------->
+        <div class="bottom">
+            <p>
+                <a href="" style="color:white" target="_blank">zhusoss</a>
+            </p>
+        </div>
+        <!---------------页脚结束---------------->
+    </div>
+</div>
+<script>
+    <!--
+    var speed = 10;
+    var tab = document.getElementById("Solutionsdemo");
+    var tab1 = document.getElementById("Solutionsdemo1");
+    var tab2 = document.getElementById("Solutionsdemo2");
+    tab2.innerHTML = tab1.innerHTML;
+
+    function Marquee() {
+        if (tab2.offsetWidth - tab.scrollLeft <= 0)
+            tab.scrollLeft -= tab1.offsetWidth
+        else {
+            tab.scrollLeft++;
+        }
+    }
+
+    var MyMar = setInterval(Marquee, speed);
+    tab.onmouseover = function () {
+        clearInterval(MyMar)
+    };
+    tab.onmouseout = function () {
+        MyMar = setInterval(Marquee, speed)
+    };
+    -->
+</script>
+</body>
+</html>

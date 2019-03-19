@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{~/css/admin.css}" type="text/css" rel="stylesheet">
+    <script charset="utf-8" th:src="@{~/kindeditor/kindeditor-min.js}"></script>
+</head>
+<body leftmargin="8" topmargin="8">
+
+<!--  快速转换位置按钮  -->
+<!--  内容列表   -->
+<form name="form2">
+    <div id="printTable">
+        <table width="98%" border="0" cellpadding="2" cellspacing="1"
+               bgcolor="#3333FF" align="center" style="margin-top: 8px">
+            <tr bgcolor="#E7E7E7">
+                <td height="24" colspan="10" th:background="@{~/images/tbg.gif}">
+                    &nbsp;酒店列表&nbsp;
+                </td>
+            </tr>
+            <tr align="center" bgcolor="#FAFAF1" height="22">
+                <td width="6%">
+                    ID
+                </td>
+                <td width="5%">
+                    酒店名
+                </td>
+                <td width="5%">
+                    星级
+                </td>
+                <td width="5%">
+                    地址
+                </td>
+                <td width="15%">
+                    酒店图片
+                </td>
+
+                <td width="15%">
+                    电话
+                </td>
+                <td width="10%">
+                    操作
+                </td>
+            </tr>
+            <tr th:each="hotel:${result.data}" align='center' bgcolor="#FFFFFF"
+                onMouseMove="javascript:this.bgColor='#FCFDEE';"
+                onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22">
+                <td th:text="${hotel.id}"></td>
+                <td th:text="${hotel.name}"></td>
+                <td th:text="${hotel.style}"></td>
+                <td align="left" th:text="${hotel.dizhi}"></td>
+
+                <td align="left">
+                    <div align="center">
+                        <img alt="" width="120px" height="70px"
+                             th:src="${'../../'+hotel.pic}">
+
+                    </div>
+                </td>
+
+                <td align="left">
+                    <div align="center" th:text="${hotel.tel}">
+                    </div>
+                </td>
+                <td>
+                    <a th:href="@{~/admin/hotel/edit/}+${hotel.id}">编辑</a> |
+                    <a th:href="@{~/admin/hotel/delete/}+${hotel.id}">删除</a>|
+                    <a th:href="@{~/admin/hotel/room/}+${hotel.id}">管理房源</a>
+                </td>
+            </tr>
+            <tr bgcolor="#FAFAF1">
+                <td height="28" colspan="10">
+                    &nbsp;
+                    <a th:href="@{~/admin/hotel/add}"><strong>酒店添加</strong>
+                    </a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</form>
+
+<!--  搜索表单  -->
+<form th:action="@{~/admin/hotel/query}" method="post">
+
+    <table width='98%' border='0' cellpadding='1' cellspacing='1'
+           bgcolor='#CBD8AC' align="center" style="margin-top: 8px">
+        <tr bgcolor='#EEF4EA'>
+            <td align='center'>
+
+                <table width="469" border='0' cellpadding='0' cellspacing='0'>
+                    <tr>
+                        <td width='129'>
+                            请输入酒店名：
+                        </td>
+                        <td width='170'>
+                            <input type='text' name='hotelName' value=''
+                                   style='width: 150px' />
+                        </td>
+                        <td width='86'>
+                            <input name="imageField" type="submit" border="0" class="np"
+                                   value='查询' />
+                        </td>
+                        <td width="84">
+                            &nbsp;
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>酒店详情</title>
+    <link th:href="@{~/css/style.css}" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" th:src="@{~/My97DatePicker/WdatePicker.js}">
+    </script>
+    <script type="text/javascript" th:src="@{~/js/tab.js}"></script>
+</head>
+
+<body>
+
+<div class="page">
+    <div class="page_con">
+        <!--  引入头部片段  -->
+        <div th:replace="inc/top::html" ></div>
+        <!----------------内容区开始-------------------->
+        <div class="sub_main">
+            <div class="sub_maincon">
+                <div class="sub_mainbox clearfix">
+                    <!-------------左边开始------------->
+
+                    <!-------------左边结束------------->
+
+                    <div class="m_border">
+
+                        <div class="m_content">
+                            <div class="article_conbox" th:each="detail:${result.data}">
+                                <h1 class="title" th:text="${detail.name}"></h1>
+                                <div class="article_info">
+                                    <span th:utext="${'名称:'+detail.name+'<br/>地址:'+detail.dizhi+'<br/>电话:'+detail.tel}"></span>
+                                </div>
+                                <div class="article_con" align="center">
+                                    <p>
+                                        <img th:src="${detail.pic}" />
+                                    </p>
+                                </div>
+                                <div class="article_con" th:utext="${detail.info}">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="m_border">
+                        <div class="m_title2">
+                            <h3>
+                                酒店评价
+                            </h3>
+                        </div>
+                        <div class="m_content" th:each="evaluate:${result.data.evaluateList}">
+                            <div class="leave_mes">
+                                <li>
+                                    <span class="reply"><a href="#"></a> </span><span th:text="${evaluate.msg}"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span th:text="${evaluate.adddate}"></span>
+                                </li>
+                            </div>
+                            <div class="message_con">
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div th:if="${user}!=null">
+                        <form id="form2" name="form2" method="post"
+                              action="AddPingjiaAction">
+                            <h3>
+                                我要评价：
+                            </h3>
+                            <p>
+										<textarea name="msg" id="msg" cols="45" rows="5"
+                                                  class="text_mes"></textarea>
+                                <input type="hidden" name="jid" th:value="${evaluate.jid}"/>
+                            </p>
+                            <p class="btn_box">
+                                <input type="submit" name="button2" id="button2" value="提交"
+                                       class="btn" />
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!----------------内容区结束-------------------->
+        <!---------------页脚开始---------------->
+        <div class="bottom">
+            <p>
+                <a href="" style="color:white" target="_blank">zhu</a>
+            </p>
+        </div>
+        <!---------------页脚结束---------------->
+    </div>
+</div>
+</body>
+</html>

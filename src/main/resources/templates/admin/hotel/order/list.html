@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>酒店管理</title>
+    <link th:href="@{~/css/admin.css}" type="text/css" rel="stylesheet">
+    <script language="javascript" th:src="@{~/Js/CheckActivX.js}"></script>
+    <script charset="utf-8" th:src="@{~/kindeditor/kindeditor-min.js}"></script>
+    <script language="javascript">
+
+        function doPrint() {
+
+            LODOP.PRINT_INIT("打印");
+            LODOP.ADD_PRINT_HTM(88, 20, 700, 600,
+                document.getElementById("printTable").innerHTML);
+            LODOP.PREVIEW();
+        };
+    </script>
+</head>
+<body leftmargin="8" topmargin="8">
+<!--  快速转换位置按钮  -->
+<!--  内容列表   -->
+<form name="form2">
+    <div id="printTable">
+        <table width="98%" border="0" cellpadding="2" cellspacing="1"
+               bgcolor="#3333FF" align="center" style="margin-top: 8px">
+            <tr bgcolor="#E7E7E7">
+                <td height="24" colspan="11" th:background="@{~/admin/images/tbg.gif}">
+                    &nbsp;酒店列表&nbsp;
+                </td>
+            </tr>
+            <tr align="center" bgcolor="#FAFAF1" height="22">
+
+                <td width="5%">
+                    入住人姓名
+                </td>
+                <td width="5%">
+                    酒店
+                </td>
+                <td width="5%">
+                    房间类型
+                </td>
+                <td width="2%">
+                    数量
+                </td>
+                <td width="5%">
+                    电话
+                </td>
+                <td width="5%">
+                    入住时间
+                </td>
+                <td width="5%">
+                    离开时间
+                </td>
+                <td width="5%">
+                    房款
+                </td>
+
+                <td width="5%">
+                    支付状态
+                </td>
+            </tr>
+
+            <tr th:each="order:${result.data}" align='center' bgcolor="#FFFFFF"
+                onMouseMove="javascript:this.bgColor='#FCFDEE';"
+                onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22">
+
+                <td th:text="${order.occupantName}"></td>
+                <td th:text="${order.hotelName}"></td>
+                <td th:text="${order.roomType}" align="left"></td>
+                <td th:text="${order.roomCount}" align="left"></td>
+                <td th:text="${order.userTel}" align="left"></td>
+                <td th:text="${order.startDate}" align="left"></td>
+                <td th:text="${order.expiryDate}" align="left"></td>
+                <td th:text="${order.paymentAmount}" align="left"></td>
+                <td th:text="${order.paymentState}" align="left"></td>
+            </tr>
+            <tr bgcolor="#FAFAF1">
+                <td height="28" colspan="11">
+                    &nbsp;
+
+                </td>
+            </tr>
+
+        </table>
+    </div>
+</form>
+<!--  搜索表单  -->
+<form th:action="@{~/admin/hotel/order/query}" method="post">
+    <table width='98%' border='0' cellpadding='1' cellspacing='1'
+           bgcolor='#CBD8AC' align="center" style="margin-top: 8px">
+        <tr bgcolor='#EEF4EA'>
+            <td align='center'>
+
+                <table width="469" border='0' cellpadding='0' cellspacing='0'>
+                    <tr>
+                        <td width='129'>
+                            请输入电话：
+                        </td>
+                        <td width='170'>
+                            <input type='text' name='userPhone' value=''
+                                   style='width: 150px' />
+                        </td>
+                        <td width='86'>
+                            <input name="imageField" type="submit" border="0" class="np"
+                                   value='查询' />
+                        </td>
+                        <td width="84">
+                            &nbsp;
+
+                        </td>
+                    </tr>
+                </table>
+
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

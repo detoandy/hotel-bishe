@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>酒店查看</title>
+    <link th:href="@{~/css/domes.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{~/css/style.css}" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" th:src="@{~/js/tab.js}">
+    </script>
+
+    <script type="text/javascript">
+        var qcondition = "";
+
+        function show() {
+
+        }
+    </script>
+
+</head>
+
+<body>
+
+<div class="page">
+    <div class="page_con">
+        <!--  引入头部片段  -->
+        <div th:replace="inc/top::html"></div>
+        <link rel="stylesheet" rev="stylesheet" th:href="@{~/jcss/hotelslist_2014.css}" type="text/css">
+        <!----------------内容区开始-------------------->
+        <div class="sub_main">
+            <div class="sub_maincon">
+                <div class="sub_mainbox clearfix">
+                    <div class="m_title2">
+                        <h3>
+                            酒店查看
+                        </h3>
+                    </div>
+                    <div class="article_listbox">
+                        <div class="search_condition fix" id="pageSearchBox">
+                            <br/>
+                            <form th:action="@{~/hotel/query}" id="line_domes">
+                                <div class="search_select fix">
+                                    <span class="type_title">名称</span>
+                                    <div class="cityInputWrap2 fix">
+                                        <div class="qcbox qcity">
+                                            <input type="text" class="textbox flightinput" id="qdizhi" name="name"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="search_select fix">
+                                    <span class="type_title">位置</span>
+                                    <div class="cityInputWrap2 fix">
+                                        <div class="qcbox qcity">
+                                            <input type="text" class="textbox flightinput" id="qdizhi" name="dizhi"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="search_select fix">
+                                    <span class="type_title">房价</span>
+                                    <span class="wt_115">
+                                        <input type="radio" name="price" id="qunery_line" checked="checked" value="arbitrarily">
+												<label for="qunery_line">
+													不限
+												</label>
+                                    </span>
+                                    <span class="wt_115">
+                                        <input type="radio" name="price" id="qunery_line" value="150">
+												<label for="qunery_line">
+													150以下
+												</label>
+                                    </span>
+                                    <span class="wt_115">
+                                        <input type="radio" name="price" id="qunery_line" value="150-300">
+													<label for="qunery_line">
+														150-300元
+													</label>
+											</span>
+                                    <span class="wt_115"><input type="radio" name="price"
+                                                                id="qunery_line" value="301-450">
+													<label for="qunery_line">
+														301-450元
+													</label>
+											</span>
+                                    <span class="wt_115"><input type="radio" name="price"
+                                                                id="qunery_line" value="451-600">
+													<label for="qunery_line">
+														451-600元
+													</label>
+											</span>
+                                    <span class="wt_115"><input type="radio" name="price"
+                                                                id="qunery_line" value="600+">
+													<label for="qunery_line">
+														600元以上
+													</label>
+											</span>
+
+                                </div>
+
+                                <div class="search_select fix">
+                                    <span class="type_title">人数</span>
+                                    <span class="wt_115"><input type="radio" name="ren"
+                                                                id="qunery_line" checked="checked" value="arbitrarily">
+													<label for="qunery_line">
+														不限
+													</label>
+											</span>
+                                    <span class="wt_115"><input type="radio" name="ren"
+                                                                id="qunery_line" value="1">
+													<label for="qunery_line">
+														1人
+													</label>
+											</span>
+                                    <span class="wt_115"><input type="radio" name="ren"
+                                                                id="qunery_line" value="2">
+													<label for="qunery_line">
+														2人
+													</label>
+											</span>
+                                    <span class="wt_115"><input type="radio" name="ren"
+                                                                id="qunery_line" value="3">
+													<label for="qunery_line">
+														3人
+													</label>
+											</span>
+                                    <span class="wt_115"><input type="radio" name="ren"
+                                                                id="qunery_line" value="4">
+													<label for="qunery_line">
+														4人
+													</label>
+											</span>
+                                    <span class="wt_115"><input type="radio" name="ren"
+                                                                id="qunery_line" value="4+">
+													<label for="qunery_line">
+														4人以上
+													</label>
+											</span>
+
+                                </div>
+
+                                <div class="search_select fix">
+                                    <span class="type_title">星级</span>
+                                    <span class="wt_115"><input type="radio" name="style"
+                                                                id="qunery_line" checked="checked" value="arbitrarily">
+													<label for="qunery_line">
+														不限
+													</label>
+											</span>
+
+                                    <span class="wt_115"><input type="radio" name="style"
+                                                                id="qunery_line" value="经济/客栈">
+													<label for="qunery_line">
+														经济/客栈
+													</label>
+											</span>
+                                    <span class="wt_115"><input type="radio" name="style"
+                                                                id="qunery_line" value="三星/舒适">
+													<label for="qunery_line">
+														三星/舒适
+													</label>
+											</span>
+                                    <span class="wt_115"><input type="radio" name="style"
+                                                                id="qunery_line" value="四星/高档">
+													<label for="qunery_line">
+														四星/高档
+													</label>
+											</span>
+                                    <span class="wt_115"><input type="radio" name="style"
+                                                                id="qunery_line" value="五星/豪华">
+													<label for="qunery_line">
+														五星/豪华
+													</label>
+											</span>
+                                    <span class="wt_115"><input type="radio" name="style"
+                                                                id="qunery_line" value="公寓">
+													<label for="qunery_line">
+														公寓
+													</label>
+											</span>
+
+                                </div>
+
+
+                                <div class="ft_line fix">
+                                    <span class="city"></span>
+                                    <div class="cityInputWrap2 fix">
+
+
+                                        <div class="bt_search">
+                                            <button title="搜索" type="submit" class="searchButton">
+                                                <span>搜 索</span>
+                                            </button>
+                                        </div>
+                                        <!--bt_search-->
+                                    </div>
+                                </div>
+                                <!--.ft_line-->
+                            </form>
+
+
+                        </div>
+                        <!--search_conditon-->
+                        <br/>
+                        <hr/>
+                        <br/>
+
+
+                        <div class="listMain" id="contentId">
+
+
+                            <div id="hotelList" th:each="hotel:${result.data}">
+                                <!--  用户查询酒店-->
+
+                                <!-- ------------bbb--------- -->
+                                <a id="hash90688296" name="hash90688296"></a>
+                                <div class="newHotelInfo clx" id="hotel90688296"
+                                     hotelid="90688296" favorcount="12">
+                                    <div class="t1">
+                                        <div class="newHotelIcon">
+
+
+                                        </div>
+                                        <a target="_blank" th:href="${'details/'+hotel.id}" mth="clickDot">
+                                            <img th:src="${'../'+hotel.pic}" th:alt="${hotel.name}">
+                                        </a>
+                                    </div>
+
+                                    <dl class="t2">
+                                        <dt>
+                                            <a class="name" mth="clickDot" target="_blank"
+                                               th:href="${'details/'+hotel.id}"
+                                               th:title="${hotel.name}" th:text="${hotel.name}"></a>
+
+
+                                        </dt>
+                                        <dd class="t2_addr_hide">
+                                            <span th:title="${hotel.name}" th:text="${hotel.dizhi}"
+                                                  class="pl5"></span>
+                                            <br/>
+                                            <span th:title="${hotel.name}" th:text="${'电话:'+hotel.tel}"
+                                                  class="pl5"></span>
+
+                                        </dd>
+
+                                        <dd class="new_order" id="new_order90688296">
+
+                                        </dd>
+                                    </dl>
+                                    <div class="t3 new_dp">
+                                        <br>
+                                        <div class="t6 new_service" th:text="${'星级:'+hotel.style}">
+                                        </div>
+                                    </div>
+                                    <div class="clear">
+                                    </div>
+                                    <div class="RpList mvtRp01" style="display: block;" stu="two">
+
+                                        <ul class="roomTypes" th:each="guestroom:${hotel.guestroomList}">
+                                            <li class="rbox" roomid="0002" sroomid="0002"
+                                                mhotelid="90688296" rpid="779759" sid="94538"
+                                                producttype="19" shotelid="90688296" isgroup="False"
+                                                style="">
+                                                <p class="rw1"  th:text="${guestroom.name}">
+                                                </p>
+                                                <p class="rw2" th:text="${guestroom.chuang}">
+                                                </p>
+                                                <p class="rw9" th:text="${guestroom.type}">
+                                                </p>
+                                                <p class="rw10" mth="cancel" canceltype="2" th:text="${guestroom.ren}">
+                                                </p>
+                                                <p class="rw4">
+															<span class="price" mth="avgPrice"
+                                                                  th:text="${guestroom.price}"><dfn>
+																	¥
+																</dfn></span>
+                                                </p>
+                                                <p class="rw9">
+                                                    <b th:if="${guestroom.state}=='订满'"><font color="red">订满</font></b>
+                                                    <a th:if="${guestroom.state}!='订满'"
+                                                       th:href="${'reservations/'+guestroom.id}"><b>预订</b></a>
+                                                </p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="message_con">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!----------------内容区结束-------------------->
+            <!---------------页脚开始---------------->
+            <div class="bottom">
+                <p>
+                    <a href="" style="color:white" target="_blank">2018</a>
+                   <!-- <a href="" style="color:white" target="_blank">
+                        <p th:text="${'总页数:'+pageUtil.totalPage}"></p>
+                        <p th:text="${'当前页:'+pageUtil.currentPage}"></p>
+                        <p th:text="${'总记录数:'+pageUtil.totalSize}"></p>
+                        <p th:text="${'一页显示:'+pageUtil.pageSize}"></p>
+                        <p th:text="${'具体数据:'+pageUtil.data.get(0)}"></p>
+                        <p th:text="${'查询条件:'+pageUtil.conditionPoJo}"></p>
+                    </a>-->
+                </p>
+            </div>
+            <!---------------页脚结束---------------->
+        </div>
+    </div>
+</div>
+</body>
+</html>

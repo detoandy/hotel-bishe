@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{~/css/admin.css}" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+<p>
+    &nbsp;
+</p>
+<p>
+    &nbsp;
+</p>
+<form th:action="@{~/admin/user/update}" method="post">
+
+    <table width="39%" border="0" align="center" cellspacing="1"
+           bordercolor="#000000" bgcolor="#0000CC">
+        <tr>
+            <td width="28%" bgcolor="#FFFFFF">
+                <div align="right" class="STYLE3">
+                    登录名：
+                </div>
+            </td>
+            <td width="72%" bgcolor="#FFFFFF">
+                <label>
+                    <input name="name" type="text" id="name"
+                           th:value='${session.result.data.name}'>
+                    <input name="id" type="hidden" id="name" th:value='${session.result.data.id}'>
+                </label>
+            </td>
+        </tr>
+        <tr>
+            <td bgcolor="#FFFFFF">
+                <div align="right" class="STYLE3">
+                    密码：
+                </div>
+            </td>
+            <td bgcolor="#FFFFFF">
+                <input name="pwd" type="text" id="pwd"
+                       th:value='${session.result.data.pwd}'>
+            </td>
+        </tr>
+
+        <tr>
+            <td width="28%" bgcolor="#FFFFFF">
+                <div align="right" class="STYLE3">
+                    性别：
+                </div>
+            </td>
+            <td width="72%" bgcolor="#FFFFFF">
+                <label>
+                    <input name="sex" type="text" id="zhi" th:value='${session.result.data.sex}'>
+                </label>
+            </td>
+        </tr>
+        <tr>
+            <td width="28%" bgcolor="#FFFFFF">
+                <div align="right" class="STYLE3">
+                    职业：
+                </div>
+            </td>
+            <td width="72%" bgcolor="#FFFFFF">
+                <label>
+                    <input name="position" type="text" id="tel" th:value='${session.result.data.position}'>
+                </label>
+            </td>
+        </tr>
+        <tr>
+            <td width="28%" bgcolor="#FFFFFF">
+                <div align="right" class="STYLE3">
+                    电话：
+                </div>
+            </td>
+            <td width="72%" bgcolor="#FFFFFF">
+                <label>
+                    <input name="tel" type="text" id="age" th:value='${session.result.data.tel}'>
+                </label>
+            </td>
+        </tr>
+
+        <tr>
+            <td width="28%" bgcolor="#FFFFFF">
+                <div align="right" class="STYLE3">
+                    公司名称：
+                </div>
+            </td>
+            <td width="72%" bgcolor="#FFFFFF">
+                <label>
+                    <input name="cpname" type="text" id="age" th:value='${session.result.data.cpname}'>
+                </label>
+            </td>
+        </tr>
+
+        <tr>
+            <td width="28%" bgcolor="#FFFFFF">
+                <div align="right" class="STYLE3">
+                    地址：
+                </div>
+            </td>
+            <td width="72%" bgcolor="#FFFFFF">
+                <label>
+                    <input name="address" type="text" id="age" th:value='${session.result.data.address}'>
+                </label>
+            </td>
+        </tr>
+
+
+
+        <tr>
+            <td colspan="2" bgcolor="#FFFFFF">
+                <label>
+                    <div align="center">
+                        <input type="submit" name="Submit" value="提交">
+                        <input type="reset" name="Submit2" value="重置">
+                    </div>
+                </label>
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

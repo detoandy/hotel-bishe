@@ -1,0 +1,72 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div id="top">
+    <!----------------页面头部开始-------------------->
+    <div class="banner">
+        <img th:src="@{~/images/top.jpg}"/>
+    </div>
+    <!----------------页面头部结束-------------------->
+    <!----------------主导航菜单开始-------------------->
+    <div id="nav">
+        <ul>
+            <li>
+                &nbsp;
+            </li>
+            <li>&nbsp;
+
+            </li>
+            <li>&nbsp;
+
+            </li>
+            <li>
+
+                &nbsp;
+            </li>
+            <li>
+
+                &nbsp;
+            </li>
+            <li>
+
+                &nbsp;
+            </li>
+            <li>
+
+                &nbsp;
+            </li>
+            <li>
+                <a th:href="@{~/index}"><span>首页</span> </a>
+            </li>
+
+            <li>
+                <a th:href="@{~/hotel/list}"><span>酒店查看</span> </a>
+            </li>
+
+            <li>
+                <a th:href="@{~/go_admin_login_page}" target="_blank"><span>后台管理</span> </a>
+            </li>
+        </ul>
+    </div>
+    <!----------------主导航菜单结束-------------------->
+</div>
+<!----------------内容区开始-------------------->
+<div class="login_con">
+    <!--条件判断-->
+
+    <form id="form1" name="form1" method="post" th:action="@{~/login}" th:if="${session.user}==null">
+		<span>用户名： <input type="text" name="name" id="name"
+                          class="text_input"/> </span>
+        <span>密码： <input type="password" name="pwd"
+                         id="pwd" class="text_input"/> </span>
+        <span> <input type="submit" name="button" id="button"
+                      value="登录" class="denlu"/> </span>
+        <span><a th:href="@{~/register}" class="zc">注册</a> </span>
+
+    </form>
+
+    <div th:if="${session.user}!=null">
+        <span th:text="${session.user.name}"></span>
+        <span><a th:href="@{~/logout}" class="zc">注销</a> </span>
+        <span><a th:href="@{~/user/info}" class="zc">查看个人信息</a> </span>
+        <span><a th:href="@{~/user/order/}+${session.user.tel}" class="zc">我的订单</a> </span>
+    </div>
+</div>

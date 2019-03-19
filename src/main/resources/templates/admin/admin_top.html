@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta http-equiv="refresh" content="60">
+    <script th:src="@{~/js/jquery-1.4.2.js}"></script>
+    <script>
+        function showsubmenu(sid) {
+            var whichEl = eval("submenu" + sid);
+            var menuTitle = eval("menuTitle" + sid);
+            if (whichEl.style.display == "none") {
+                eval("submenu" + sid + ".style.display=\"\";");
+            } else {
+                eval("submenu" + sid + ".style.display=\"none\";");
+            }
+        }
+
+        /**
+         * 作者:姜帆
+         * 时间:2018 9 20
+         * 描述:用户退出
+         */
+        function userExit() {
+            $.ajax({
+                url: '../admin_exit',
+                type: 'get',
+                success: function (rep) {
+                    if(rep.status==200){
+                        var win=window;
+                        while(win.parent!=window.top)
+                        {
+                            win=win.parent;
+                        }
+                        win.parent.location.replace("../go_admin_login_page");
+                    }else{
+                        alert("status:"+rep.status+" errMsg:"+rep.msg);
+                    }
+                },
+                error: function (err) {
+                    console.log(err.status);
+                    console.log(err.msg);
+                    alert("服务器异常!!!");
+                }
+            });
+        }
+
+    </script>
+
+    <base target="main">
+    <link th:href="@{~/images/skin.css}" rel="stylesheet" type="text/css">
+</head>
+<body leftmargin="0" topmargin="0">
+<table width="100%" height="64" border="0" cellpadding="0" cellspacing="0" class="admin_topbg">
+    <tr>
+        <td width="61%" height="64"><img th:src="@{~/images/logo.gif}" width="262" height="64"></td>
+        <td width="39%" valign="top">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td width="74%" height="38" class="admin_txt">管理员：<b></b> 您好,感谢登陆使用！</td>
+                    <td width="22%"><a href="javascript:userExit()">
+                        <img th:src="@{~/images/out.gif}" alt="安全退出" width="46" height="20" border="0"></a></td>
+                    <td width="4%">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td height="19" colspan="3">&nbsp;</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
