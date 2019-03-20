@@ -1,9 +1,6 @@
 package cn.sevenzero.hotel.pojo;
 
 /**
- * @作者: 姜帆
- * @创建日期: 2018/9/14 10:27
- * @功能描述: 酒店代理商实体
  */
 public class Agent {
     private Integer id;

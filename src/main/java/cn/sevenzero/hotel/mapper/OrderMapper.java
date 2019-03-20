@@ -6,9 +6,6 @@ import org.apache.ibatis.annotations.Select;
 import java.util.List;
 
 /**
- * @作者: 姜帆
- * @创建日期: 2018/9/13 17:21
- * @功能描述: 订单
  */
 public interface OrderMapper {
     /**

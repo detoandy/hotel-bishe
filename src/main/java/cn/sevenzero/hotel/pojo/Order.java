@@ -3,9 +3,6 @@ package cn.sevenzero.hotel.pojo;
 import java.io.Serializable;
 
 /**
- * @作者: 姜帆
- * @创建日期: 2018/9/13 17:27
- * @功能描述: 用户订单实体
  */
 public class Order implements Serializable{
   private Integer oId;// 订单编号

@@ -15,9 +15,9 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 /**
- * @×÷Õß: ½ª·«
- * @´´½¨ÈÕÆÚ: 2018/9/3 15:33
- * @¹¦ÄÜÃèÊö:
+ * @ä½œè€…: å§œå¸†
+ * @åˆ›å»ºæ—¥æœŸ: 2018/9/3 15:33
+ * @åŠŸèƒ½æè¿°:
  */
 @Service
 @Transactional
@@ -32,17 +32,17 @@ public class JiuDianServiceImpl implements JiuDianService {
     public HotelResult findNewHotels() {
         List<JiuDian> list=jiuDianMapper.selectNewHotels();
         HotelResult result= Common.wrapService(list,null,new HotelResult(),1);
-        return result;// ĞŞ¸ÄÍê±Ï
+        return result;// ä¿®æ”¹å®Œæ¯•
     }
 
     @Override
     public HotelResult findHotelsByPojo(HotelAndGuestRoom hotelAndGuestRoom) {
-        int pageNo=hotelAndGuestRoom.getPageNo();//ÄÃµ½ÓÃ»§Ò³Âë
-        pageNo=10*(pageNo-1); // ¼ÆËãÊı¾İ¿ªÊ¼Î»ÖÃ
+        int pageNo=hotelAndGuestRoom.getPageNo();//æ‹¿åˆ°ç”¨æˆ·é¡µç 
+        pageNo=10*(pageNo-1); // è®¡ç®—æ•°æ®å¼€å§‹ä½ç½®
         if(pageNo<0){
-            pageNo=0;//Èë»§Ã»ÓĞ´«Ò³Âë»òÕßÒ³ÂëÎª¸ºÊı
+            pageNo=0;//å…¥æˆ·æ²¡æœ‰ä¼ é¡µç æˆ–è€…é¡µç ä¸ºè´Ÿæ•°
         }
-        // ½âÎö²éÑ¯ÌØÊâÌõ¼ş
+        // è§£ææŸ¥è¯¢ç‰¹æ®Šæ¡ä»¶
         if(!"".equals(hotelAndGuestRoom.getRen())){
            hotelAndGuestRoom.parseNumberOfPeople(hotelAndGuestRoom.getRen());
         }
@@ -50,7 +50,7 @@ public class JiuDianServiceImpl implements JiuDianService {
             hotelAndGuestRoom.parseRoomPrice(hotelAndGuestRoom.getPrice());
         }
         List<JiuDian> list= jiuDianMapper.selectHotelsByPojo(hotelAndGuestRoom,pageNo);
-        HotelResult result= Common.wrapService(list,hotelAndGuestRoom,new HotelResult(),hotelAndGuestRoom.getPageNo());// ·â×°·şÎñ²ãÒµÎñ
+        HotelResult result= Common.wrapService(list,hotelAndGuestRoom,new HotelResult(),hotelAndGuestRoom.getPageNo());// å°è£…æœåŠ¡å±‚ä¸šåŠ¡
         return result;
     }
 
