@@ -15,7 +15,7 @@ public interface UserInfoMapper {
                  "uinfo.age,uinfo.tel," +
                  "uinfo.address,uinfo.email " +
             "FROM userinfo uinfo " +
-            "WHERE name=#{userInfo.name} " +
+            "WHERE tel=#{userInfo.tel} " +
             "AND pwd=#{userInfo.pwd}")
     UserInfo selectUserInfoBySelf(@Param("userInfo") UserInfo userInfo);
 
