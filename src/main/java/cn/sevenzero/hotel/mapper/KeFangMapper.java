@@ -7,9 +7,6 @@ import org.apache.ibatis.annotations.*;
 import java.util.List;
 
 /**
- * @作者: 姜帆
- * @创建日期: 2018/9/7 15:06
- * @功能描述:
  */
 public interface KeFangMapper {
     /**

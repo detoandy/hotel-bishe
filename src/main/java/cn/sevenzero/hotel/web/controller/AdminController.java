@@ -23,9 +23,6 @@ import javax.validation.Valid;
 import java.io.IOException;
 
 /**
- * @作者: 姜帆
- * @创建日期: 2018/9/17 20:13
- * @功能描述:
  */
 @Controller
 public class AdminController {

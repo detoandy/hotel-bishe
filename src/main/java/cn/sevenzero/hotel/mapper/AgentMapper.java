@@ -7,9 +7,6 @@ import org.apache.ibatis.annotations.*;
 import java.util.List;
 
 /**
- * @作者: 26706
- * @创建日期: 2018/9/18 10:54
- * @功能描述:
  */
 public interface AgentMapper {
     @Select("SELECT * FROM agent WHERE name=#{username} AND pwd=#{password}")

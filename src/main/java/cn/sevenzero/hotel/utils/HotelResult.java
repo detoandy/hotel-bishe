@@ -6,9 +6,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
 
 /**
- * @作者: 姜帆
- * @创建日期: 2018/9/3 15:43
- * @功能描述: 统一数据处理格式
  */
 
 public class HotelResult implements Serializable {

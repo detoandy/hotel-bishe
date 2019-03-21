@@ -4,9 +4,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * @作者: 姜帆
- * @创建日期: 2018/9/11 11:10
- * @功能描述: 封装酒店查询条件
  */
 public class HotelAndGuestRoom {
 

@@ -15,10 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.servlet.http.HttpSession;
 
 /**
- * @作者: 姜帆
- * @创建日期: 2018/9/13 12:53
- * @功能描述: 用户查看自己的个人资料以及编辑
- * 用户查看自己的订单
  */
 @Controller
 @RequestMapping(value = "user")

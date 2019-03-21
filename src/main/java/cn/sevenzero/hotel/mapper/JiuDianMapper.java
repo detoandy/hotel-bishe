@@ -9,9 +9,6 @@ import org.apache.ibatis.mapping.FetchType;
 import java.util.List;
 
 /**
- * @作者: 姜帆
- * @创建日期: 2018/9/3 11:55
- * @功能描述: 酒店表mapper
  */
 public interface JiuDianMapper {
     /**

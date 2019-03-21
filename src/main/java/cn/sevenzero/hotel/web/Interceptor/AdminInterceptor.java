@@ -11,9 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * @作者: 26706
- * @创建日期: 2018/9/19 10:38
- * @功能描述:
  */
 @Component
 public class AdminInterceptor implements HandlerInterceptor {

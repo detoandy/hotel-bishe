@@ -9,9 +9,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.util.Date;
 
 /**
- * @作者: 26706
- * @创建日期: 2018/9/26 16:57
- * @功能描述:
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest

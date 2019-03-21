@@ -24,9 +24,6 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @作者: 姜帆
- * @创建日期: 2018/9/3 11:46
- * @功能描述: 首页数据展示 登陆 注册 的请求跳转
  */
 
 @Controller

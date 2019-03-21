@@ -4,9 +4,6 @@ import cn.sevenzero.hotel.pojo.YuDing;
 import org.springframework.stereotype.Controller;
 
 /**
- * @作者: 姜帆
- * @创建日期: 2018/9/4 11:02
- * @功能描述: 支付包支付接口
  */
 @Controller
 public class AlipayController {

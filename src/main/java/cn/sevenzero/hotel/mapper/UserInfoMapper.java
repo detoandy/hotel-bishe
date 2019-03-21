@@ -7,9 +7,6 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 /**
- * @作者: 26706
- * @创建日期: 2018/9/13 14:15
- * @功能描述:
  */
 public interface UserInfoMapper {
     @Select("SELECT " +

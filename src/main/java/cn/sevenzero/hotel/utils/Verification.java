@@ -1,9 +1,6 @@
 package cn.sevenzero.hotel.utils;
 
 /**
- * @作者: 姜帆
- * @创建日期: 2018/9/4 14:52
- * @功能描述: 对用户的接口名称进行合法校验
  */
 public class Verification {
     /**

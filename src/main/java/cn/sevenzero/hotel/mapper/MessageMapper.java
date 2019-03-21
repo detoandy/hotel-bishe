@@ -8,9 +8,6 @@ import org.apache.ibatis.annotations.Select;
 import java.util.List;
 
 /**
- * @作者: 26706
- * @创建日期: 2018/9/3 16:55
- * @功能描述:
  */
 public interface MessageMapper {
     /**

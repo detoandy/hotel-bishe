@@ -15,9 +15,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
- * @作者: 姜帆
- * @创建日期: 2018/9/7 11:08
- * @功能描述: 酒店控制器
  */
 @Controller
 @RequestMapping("hotel")
