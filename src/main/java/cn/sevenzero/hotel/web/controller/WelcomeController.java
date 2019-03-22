@@ -47,11 +47,9 @@ public class WelcomeController {
      * 展示首页最新的酒店列表
      *
      * @return 返回index视图
-     * 描述: 定义自定义结果集的原因是 考虑到后期系统前端升级，以及安卓端的开发做系统支持的。
      */
     @GetMapping("index")
     public String showIndexNewHotels(Model model) {
-        // 每次刷新都去刷新数据吧
         Map<String, Object> indexData = new HashMap<>();// 主页数据
         List<JiuDian> hotels = (List<JiuDian>) jiuDianService.findNewHotels().getData(); // 酒店列表
         List<News> articles = (List<News>) newsService.selectNewArticles().getData(); // 文章列表
@@ -76,7 +74,7 @@ public class WelcomeController {
     }
 
     /**
-     * 用户注销 (我们约定用户登陆的信息存放在springmvc的Model里面) 这里暂时不做单点登陆
+     * 用户注销  这里暂时不做单点登陆
      *
      * @return 返回登陆视图
      */
@@ -107,7 +105,6 @@ public class WelcomeController {
     }
 
     /**
-     * 需要做一个防止爬虫机制
      * @param userInfo
      * @return
      */
