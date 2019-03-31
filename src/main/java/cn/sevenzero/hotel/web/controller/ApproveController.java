@@ -1,6 +1,7 @@
 package cn.sevenzero.hotel.web.controller;
 
 import cn.sevenzero.hotel.pojo.Room;
+import cn.sevenzero.hotel.service.ApproveService;
 import cn.sevenzero.hotel.service.RoomService;
 import cn.sevenzero.hotel.utils.HotelResult;
 import org.apache.ibatis.annotations.Param;
@@ -16,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
 public class ApproveController {
 
     @Autowired
-    private RoomService roomService;
+    private ApproveService approveService;
 
 
     /**
@@ -25,9 +26,9 @@ public class ApproveController {
      */
     @GetMapping(value = "/list")
     public String getRoomList(@Param("name") String name, Model model){
-        HotelResult result= roomService.getRoomList(name);
+        HotelResult result= approveService.getApproveList();
         model.addAttribute("result",result);
-        return "X-admin/room-list";
+        return "X-admin/approve-list";
     }
 
 }

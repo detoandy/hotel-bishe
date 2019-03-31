@@ -1,8 +1,12 @@
 package cn.sevenzero.hotel.service;
 
+import cn.sevenzero.hotel.utils.HotelResult;
+
+
 /**
  */
-public class ApproveService {
+public interface ApproveService {
 
+    HotelResult getApproveList();
 
 }
