@@ -3,8 +3,6 @@ package cn.sevenzero.hotel.utils;
 import java.util.List;
 
 /**
- * @作者: 姜帆
- * @创建日期: 2018/9/7 15:15
  * @功能描述: 保证各层的通用代码
  */
 public class Common {

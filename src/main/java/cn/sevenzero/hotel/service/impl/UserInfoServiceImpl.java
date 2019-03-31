@@ -10,8 +10,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * @作者: 姜帆
- * @创建日期: 2018/9/13 14:23
  * @功能描述:
  */
 @Service

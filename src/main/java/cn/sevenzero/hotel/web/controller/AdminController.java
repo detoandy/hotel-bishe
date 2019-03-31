@@ -50,6 +50,7 @@ public class AdminController {
         }
         session.setAttribute("admin", data);
         return HotelConstant.REDIRECT + "/admin/index";
+
     }
 
     /**
@@ -59,7 +60,13 @@ public class AdminController {
      */
     @GetMapping(value = "admin/index")
     public String showAdminIndexPage() {
-        return "admin/index";
+        //return "admin/index";
+        return "X-admin/index";
+    }
+
+    @GetMapping(value = "admin/welcome")
+    public String showWelcomePage() {
+        return "X-admin/welcome";
     }
 
     /**
@@ -71,7 +78,8 @@ public class AdminController {
     public String showUserList(Model model) {
         HotelResult result = agentService.findAgentsByName();
         model.addAttribute("result", result);
-        return "admin/user/list";
+        //return "admin/user/list";
+        return "X-admin/admin-list";
     }
 
     @PostMapping(value = "admin/user/query")
@@ -79,8 +87,14 @@ public class AdminController {
         logger.info("queryName:"+queryName);
         HotelResult result = agentService.findAgentsByName(queryName);
         model.addAttribute("result", result);
-        return "admin/user/list";
+        return "X-admin/admin-list";
     }
+
+    @GetMapping(value = "admin/add")
+    public String userAdd(){
+        return "X-admin/admin-add";
+    }
+
     /**
      * 查询指定用户具体信息
      *
@@ -88,10 +102,11 @@ public class AdminController {
      * @return
      */
     @GetMapping(value = "admin/user/info/{id}")
-    public String showUserInfo(@PathVariable Integer id, HttpSession session) {
+    public String showUserInfo(@PathVariable Integer id, Model model) {
         HotelResult result = agentService.findAgentById(id);
-        session.setAttribute("result", result);
-        return "admin/user/update";
+        model.addAttribute("result", result);
+        return "X-admin/admin-add";
+        //return "admin/user/update";
     }
 
     /**
@@ -101,17 +116,19 @@ public class AdminController {
      * @return
      */
     @PostMapping(value = "admin/user/update")
-    public String userUpdate(Agent agent) {
+    @ResponseBody
+    public HotelResult userUpdate(Agent agent) {
         HotelResult result;
         try {
             agentService.editAgent(agent);
         } catch (Exception e) {
             result = HotelResult.build(500, e.getMessage());//构建错误消息
             logger.error("err msg:" + result.getMsg());
-            return "err";
+            e.printStackTrace();
+            return result;
         }
         result = HotelResult.ok();
-        return HotelConstant.REDIRECT + "/admin/user/list";
+        return result;
     }
 
     /**
@@ -121,17 +138,19 @@ public class AdminController {
      * @return
      */
     @GetMapping(value = "admin/user/delete/{id}")
-    public String userDelete(@PathVariable Integer id) {
+    @ResponseBody
+    public HotelResult userDelete(@PathVariable Integer id) {
         HotelResult result;
         try {
             agentService.removeAgentById(id);
         } catch (Exception e) {
             result = HotelResult.build(500, e.getMessage());
             logger.error("err msg:" + result.getMsg());
-            return "err";
+            e.printStackTrace();
+            return result;
         }
         result = HotelResult.ok();
-        return HotelConstant.REDIRECT + "/admin/user/list";
+        return result;
     }
 
     /**
@@ -141,17 +160,20 @@ public class AdminController {
      * @return
      */
     @PostMapping(value = "admin/user/create")
-    public String createUser(Agent agent) {
+    @ResponseBody
+    public HotelResult createUser(Agent agent) {
         HotelResult result;
         try {
             agentService.createAgent(agent);
         } catch (Exception e) {
             result = HotelResult.build(500, e.getMessage());
             logger.error("err msg:" + result.getMsg());
-            return "err";
+            e.printStackTrace();
+            return result;
         }
         result = HotelResult.ok();
-        return HotelConstant.REDIRECT + "/admin/user/list";
+        return result;
+        //return HotelConstant.REDIRECT + "/admin/user/list";
     }
 
     @GetMapping(value = "admin_exit")
@@ -182,7 +204,8 @@ public class AdminController {
 
     @GetMapping(value = "go_admin_login_page")
     public String goLoginPage() {
-        return "admin/login";
+        //return "admin/login";
+        return "X-admin/login";
     }
 
     /**

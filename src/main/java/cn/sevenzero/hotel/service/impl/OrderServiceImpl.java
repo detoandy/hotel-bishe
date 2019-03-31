@@ -12,8 +12,6 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 /**
- * @作者: 姜帆
- * @创建日期: 2018/9/14 11:40
  * @功能描述:
  */
 @Transactional

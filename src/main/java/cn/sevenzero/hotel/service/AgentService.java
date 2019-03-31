@@ -7,8 +7,6 @@ import cn.sevenzero.hotel.utils.HotelResult;
 import java.sql.SQLException;
 
 /**
- * @作者: 姜帆
- * @创建日期: 2018/9/18 10:56
  * @功能描述:
  */
 public interface AgentService {

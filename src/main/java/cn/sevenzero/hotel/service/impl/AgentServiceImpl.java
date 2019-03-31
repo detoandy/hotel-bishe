@@ -16,8 +16,6 @@ import java.sql.SQLException;
 import java.util.List;
 
 /**
- * @作者: 姜帆
- * @创建日期: 2018/9/18 10:59
  * @功能描述:
  */
 @Service

@@ -19,13 +19,7 @@ public interface AgentMapper {
     Agent selectAgentById(Integer id);
 
     @Update("UPDATE agent \n" +
-            "  SET agent.name=#{ag.name},\n" +
-            "      pwd=#{ag.pwd},\n" +
-            "      sex=#{ag.sex},\n" +
-            "      position=#{ag.position},\n" +
-            "      tel=#{ag.tel},\n" +
-            "      cpname=#{ag.cpname},\n" +
-            "      address=#{ag.address}\n" +
+            "  SET agent.name=#{ag.name},pwd=#{ag.pwd},tel=#{ag.tel},email=#{ag.email},pwd=#{ag.pwd}\n" +
             "  WHERE id=#{ag.id};")
     void updateAgent(@Param("ag") Agent agent);
 
@@ -33,14 +27,7 @@ public interface AgentMapper {
     void deleteAgentById(Integer id);
 
     @Options(useGeneratedKeys = true,keyProperty = "id")
-    @Insert("INSERT INTO agent(" +
-                 "name,pwd,sex," +
-                 "position,tel," +
-                 "cpname,address" +
-                ") " +
-             "VALUES(#{ag.name},#{ag.pwd},#{ag.sex}," +
-                 "#{ag.position},#{ag.tel}," +
-                 "#{ag.cpname},#{ag.address}" +
-            ")")
+    @Insert("INSERT INTO agent(name,pwd,tel,email)" +
+             "VALUES(#{ag.name},#{ag.pwd},#{ag.tel},#{ag.email})")
     void insertAgent(@Param("ag") Agent agent);
 }

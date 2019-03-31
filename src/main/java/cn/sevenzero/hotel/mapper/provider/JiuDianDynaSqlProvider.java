@@ -7,8 +7,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * @作者: 姜帆
- * @创建日期: 2018/9/11 11:31
  * @功能描述: 酒店动态条件
  */
 public class JiuDianDynaSqlProvider {

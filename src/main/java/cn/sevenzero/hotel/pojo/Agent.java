@@ -1,18 +1,23 @@
 package cn.sevenzero.hotel.pojo;
 
+import com.alibaba.fastjson.annotation.JSONField;
+
+import java.util.Date;
+
 /**
  */
 public class Agent {
     private Integer id;
     private String name;
     private String pwd;
-    private String sex;
-    private String position;// 职位
     private String tel;
-    private String cpname; // 公司名称
-    private String address;
     private int state; //状态
     private int rid;// 角色id
+    private String email;
+    @JSONField(format="yyyy-MM-dd hh:mm:ss")
+    private Date createTime;
+    @JSONField(format="yyyy-MM-dd hh:mm:ss")
+    private Date updateTime;
 
     public Integer getId() {
         return id;
@@ -38,44 +43,12 @@ public class Agent {
         this.pwd = pwd;
     }
 
-    public String getSex() {
-        return sex;
-    }
-
-    public void setSex(String sex) {
-        this.sex = sex;
-    }
-
-    public String getPosition() {
-        return position;
-    }
-
-    public void setPosition(String position) {
-        this.position = position;
-    }
-
     public String getTel() {
         return tel;
     }
 
     public void setTel(String tel) {
         this.tel = tel;
-    }
-
-    public String getCpname() {
-        return cpname;
-    }
-
-    public void setCpname(String cpname) {
-        this.cpname = cpname;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
     }
 
     public int getState() {
@@ -86,6 +59,14 @@ public class Agent {
         this.state = state;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public int getRid() {
         return rid;
     }
@@ -94,17 +75,30 @@ public class Agent {
         this.rid = rid;
     }
 
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
+    }
+
     @Override
     public String toString() {
         return "Agent{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", pwd='" + pwd + '\'' +
-                ", sex='" + sex + '\'' +
-                ", position='" + position + '\'' +
                 ", tel='" + tel + '\'' +
-                ", cpname='" + cpname + '\'' +
-                ", address='" + address + '\'' +
                 ", state=" + state +
                 ", rid=" + rid +
                 '}';

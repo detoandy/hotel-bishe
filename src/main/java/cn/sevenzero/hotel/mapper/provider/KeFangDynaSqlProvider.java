@@ -5,8 +5,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * @作者: 姜帆
- * @创建日期: 2018/9/26 15:29
  * @功能描述:
  */
 public class KeFangDynaSqlProvider {
