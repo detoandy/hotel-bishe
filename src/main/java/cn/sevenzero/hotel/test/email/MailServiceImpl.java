@@ -1,3 +1,4 @@
+/*
 package cn.sevenzero.hotel.test.email;
 
 import org.junit.Test;
@@ -37,4 +38,4 @@ public class MailServiceImpl implements MailService{
         }
 
     }
-}
+}*/

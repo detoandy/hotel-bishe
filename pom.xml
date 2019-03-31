@@ -101,10 +101,10 @@
 			<version>2.0.5.RELEASE</version>
 		</dependency>
         <!--springboot邮件-->
-		<dependency>
+		<!--<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-mail</artifactId>
-		</dependency>
+		</dependency>-->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>

@@ -23,7 +23,7 @@ public class AdminInterceptor implements HandlerInterceptor {
         HttpSession session= request.getSession();
         Agent agent= (Agent) session.getAttribute("admin");
         if (agent==null){
-            response.sendRedirect("/go_admin_login_page");
+            response.sendRedirect("/admin");
             return false;
         }
         return true;

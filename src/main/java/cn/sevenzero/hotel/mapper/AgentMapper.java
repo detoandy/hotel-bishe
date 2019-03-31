@@ -30,4 +30,5 @@ public interface AgentMapper {
     @Insert("INSERT INTO agent(name,pwd,tel,email)" +
              "VALUES(#{ag.name},#{ag.pwd},#{ag.tel},#{ag.email})")
     void insertAgent(@Param("ag") Agent agent);
+
 }

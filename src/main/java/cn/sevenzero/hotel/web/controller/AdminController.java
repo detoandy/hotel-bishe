@@ -6,10 +6,10 @@ import cn.sevenzero.hotel.pojo.JiuDian;
 import cn.sevenzero.hotel.pojo.KeFang;
 import cn.sevenzero.hotel.service.AgentService;
 import cn.sevenzero.hotel.service.JiuDianService;
-import cn.sevenzero.hotel.service.KeFangService;
+import cn.sevenzero.hotel.service.RoomService;
 import cn.sevenzero.hotel.service.OrderService;
 import cn.sevenzero.hotel.utils.HotelResult;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,10 +36,11 @@ public class AdminController {
     private JiuDianService jiuDianService;
 
     @Autowired
-    private KeFangService keFangService;
+    private RoomService roomService;
 
     @Autowired
     private OrderService orderService;
+
 
     @PostMapping(value = "admin_login")
     public String adminLogin(Agent agent, HttpSession session) {
@@ -65,7 +66,9 @@ public class AdminController {
     }
 
     @GetMapping(value = "admin/welcome")
-    public String showWelcomePage() {
+    public String showWelcomePage(Model model) {
+        Integer roomCount = roomService.getCount();
+        model.addAttribute("roomCount",roomCount);
         return "X-admin/welcome";
     }
 
@@ -202,7 +205,7 @@ public class AdminController {
         return "admin/left";
     }
 
-    @GetMapping(value = "go_admin_login_page")
+    @GetMapping(value = "admin")
     public String goLoginPage() {
         //return "admin/login";
         return "X-admin/login";
@@ -319,61 +322,10 @@ public class AdminController {
         return "admin/hotel/room/add";
     }
 
-    /**
-     * 添加客房
-     * @param keFang
-     * @return
-     */
-    @PostMapping(value = "admin/hotel/room/create")
-    public String createGuestRoom(KeFang keFang,Integer hotelId){
-        try {
-            keFangService.createGuestRoom(keFang,hotelId);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return "admin/hotel/room/add";
-    }
-
-    /**
-     * 显示指定的客房信息
-     * @param guestRoomId
-     * @return
-     */
-    @GetMapping(value = "admin/hotel/room/edit/{guestRoomId}")
-    public String showGuestRoom(@PathVariable Integer guestRoomId,Model model){
-        HotelResult result=keFangService.selectGuestRoomsById(guestRoomId);
-        model.addAttribute("result",result);
-        return "admin/hotel/room/update";
-    }
-
-    /**
-     * 修改酒店信息
-     * @param keFang
-     * @return
-     */
-    @PostMapping(value = "admin/hotel/room/update")
-    public String updateGuestRoom(KeFang keFang){
-        try {
-            keFangService.updateGuestRoom(keFang);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return HotelConstant.REDIRECT+"/admin/hotel/list";
-    }
-
-    @GetMapping(value = "admin/hotel/room/delete/{guestRoomId}")
-    public String deleteGuestRoom(@PathVariable Integer guestRoomId){
-        try {
-            keFangService.removeGuestRoom(guestRoomId);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return HotelConstant.REDIRECT+"/admin/hotel/list";
-    }
 
     @PostMapping(value = "admin/hotel/room/query")
     public String queryGuestRoom(String roomName,Model model){
-        HotelResult result=keFangService.queryGuestRoomByRoomName(roomName);
+        HotelResult result=roomService.queryGuestRoomByRoomName(roomName);
         model.addAttribute("result",result);
         return "admin/hotel/room/list";
     }

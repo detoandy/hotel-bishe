@@ -1,6 +1,6 @@
 package cn.sevenzero.hotel.web.controller;
 
-import cn.sevenzero.hotel.service.KeFangService;
+import cn.sevenzero.hotel.service.RoomService;
 import cn.sevenzero.hotel.service.PingJiaService;
 import cn.sevenzero.hotel.utils.HotelAndGuestRoom;
 import cn.sevenzero.hotel.service.JiuDianService;
@@ -29,7 +29,7 @@ public class HotelController {
     private PingJiaService pingJiaService;
 
     @Autowired
-    private KeFangService keFangService;
+    private RoomService roomService;
 
     @GetMapping(value ="list")
     public String showHotelList(Model model){
@@ -60,15 +60,4 @@ public class HotelController {
          return "jiu_detail";
     }
 
-    /**
-     * 根据酒店房间id查询房间
-     * @param guestRoomId
-     * @return
-     */
-    @GetMapping(value = "reservations/{guestRoomId}")
-    public String reservations(@PathVariable Integer guestRoomId,Model model){
-        HotelResult result= keFangService.selectGuestRoomsById(guestRoomId);//查询房间
-        model.addAttribute("result",result);
-        return "yuding";
-    }
 }

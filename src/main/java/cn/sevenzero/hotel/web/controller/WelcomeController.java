@@ -5,10 +5,7 @@ import cn.sevenzero.hotel.pojo.JiuDian;
 import cn.sevenzero.hotel.pojo.Message;
 import cn.sevenzero.hotel.pojo.News;
 import cn.sevenzero.hotel.pojo.UserInfo;
-import cn.sevenzero.hotel.service.JiuDianService;
-import cn.sevenzero.hotel.service.MessageService;
-import cn.sevenzero.hotel.service.NewsService;
-import cn.sevenzero.hotel.service.UserInfoService;
+import cn.sevenzero.hotel.service.*;
 import cn.sevenzero.hotel.utils.HotelResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -42,6 +39,7 @@ public class WelcomeController {
 
     @Autowired
     private UserInfoService userInfoService;
+
 
     /**
      * 展示首页最新的酒店列表

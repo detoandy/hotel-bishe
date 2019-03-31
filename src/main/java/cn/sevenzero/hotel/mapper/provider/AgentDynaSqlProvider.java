@@ -7,7 +7,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * @功能描述: 酒店动态条件
  */
 public class AgentDynaSqlProvider {
     private final Logger logger= LoggerFactory.getLogger(AgentDynaSqlProvider.class);

@@ -67,4 +67,5 @@ public class AgentServiceImpl implements AgentService {
     public void createAgent(Agent agent) {
         agentMapper.insertAgent(agent);
     }
+
 }
