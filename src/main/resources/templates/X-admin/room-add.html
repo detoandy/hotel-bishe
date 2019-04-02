@@ -37,6 +37,18 @@
               </div>
             </div>
             <div class="layui-form-item">
+                <label for="name" class="layui-form-label">
+                    <span class="x-red">*</span>房间数量
+                </label>
+                <div class="layui-input-inline">
+                    <input type="text" id="count" name="count" required="" lay-verify="required"
+                           autocomplete="off" class="layui-input" th:value="${result==null?'':result.data.count}">
+                </div>
+                <div class="layui-form-mid layui-word-aux">
+                    <span class="x-red">*</span>
+                </div>
+            </div>
+            <div class="layui-form-item">
                 <label for="person" class="layui-form-label">
                   <span class="x-red">*</span>入住人数(人)
                 </label>

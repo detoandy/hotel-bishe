@@ -6,11 +6,13 @@ import cn.sevenzero.hotel.service.ApproveService;
 import cn.sevenzero.hotel.utils.Common;
 import cn.sevenzero.hotel.utils.HotelResult;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 /**
  */
+@Service
 public class ApproveServiceImpl implements ApproveService {
 
     @Autowired

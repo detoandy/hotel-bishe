@@ -19,6 +19,7 @@ public interface RoomMapper {
     @Results({
             @Result(id = true, column = "id", property = "id"),
             @Result(column = "name", property = "name"),
+            @Result(column = "count", property = "count"),
             @Result(column = "person", property = "person"),
             @Result(column = "price", property = "price"),
             @Result(column = "comment", property = "comment"),
@@ -31,6 +32,7 @@ public interface RoomMapper {
     @Results({
             @Result(id = true, column = "id", property = "id"),
             @Result(column = "name", property = "name"),
+            @Result(column = "count", property = "count"),
             @Result(column = "person", property = "person"),
             @Result(column = "price", property = "price"),
             @Result(column = "comment", property = "comment"),
@@ -40,7 +42,7 @@ public interface RoomMapper {
     Room getRoomById(Integer id);
 
     @Update("UPDATE room \n" +
-            "  SET name=#{r.name},person=#{r.person},price=#{r.price},comment=#{r.comment}\n" +
+            "  SET name=#{r.name},count=#{r.count},person=#{r.person},price=#{r.price},comment=#{r.comment}\n" +
             "  WHERE id=#{r.id};")
     void updateRoom(@Param("r") Room room);
 
@@ -48,8 +50,8 @@ public interface RoomMapper {
     void deleteRoomById(Integer id);
 
     @Options(useGeneratedKeys = true,keyProperty = "id")
-    @Insert("INSERT INTO room(name,price,person,comment)" +
-            "VALUES(#{r.name},#{r.price},#{r.person},#{r.comment})")
+    @Insert("INSERT INTO room(name,count,price,person,comment)" +
+            "VALUES(#{r.name},#{r.count},#{r.price},#{r.person},#{r.comment})")
     void saveRoom(@Param("r") Room room);
 
     @SelectProvider(type = RoomDynaSqlProvider.class,method = "selectByName")

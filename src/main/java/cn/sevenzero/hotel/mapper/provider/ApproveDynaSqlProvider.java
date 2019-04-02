@@ -13,7 +13,7 @@ public class ApproveDynaSqlProvider {
 
     public String selectByParams(final String name) {
         String sql = new SQL() {{
-            SELECT("id,name,tel,count,room,bdate,edate, createTime,update_time updateTime");
+            SELECT("id,name,tel,count,room,bdate,edate,create_time createTime");
             FROM("approve");
             if (!StringUtils.isEmpty(name)) {
                 WHERE("name LIKE CONCAT('%',#{name},'%')");

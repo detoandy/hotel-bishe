@@ -9,6 +9,7 @@ import java.util.Date;
 public class Room implements Serializable {
     private Integer id;
     private String name;
+    private Integer count;
     private String price; // 房间价格
     private String person;    // 房间人数
     private String comment;
@@ -29,6 +30,14 @@ public class Room implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Integer getCount() {
+        return count;
+    }
+
+    public void setCount(Integer count) {
+        this.count = count;
     }
 
     public String getPrice() {

@@ -13,7 +13,7 @@ public class RoomDynaSqlProvider {
 
     public String selectByName(final String name) {
         String sql = new SQL() {{
-            SELECT("id,name,person,price,create_time createTime,update_time updateTime");
+            SELECT("id,name,count,person,price,create_time createTime,update_time updateTime");
             FROM("room");
             if (!StringUtils.isEmpty(name)) {
                 WHERE("name LIKE CONCAT('%',#{name},'%')");

@@ -53,7 +53,8 @@
             </th>
             <th>标识</th>
             <th>名称</th>
-            <th>人数</th>
+            <th>房间数量</th>
+            <th>可住人数</th>
             <th>价格(元)</th>
             <th>创建时间</th>
             <th>更新时间</th>
@@ -66,6 +67,7 @@
             </td>
             <td th:text="${room.id}">1</td>
             <td th:text="${room.name}">admin</td>
+            <td th:text="${room.count}"></td>
             <td th:text="${room.person}">18925139194</td>
             <td th:text="${room.price}">18925139194</td>
             <td th:text="${room.createTime}"></td>
@@ -84,10 +86,9 @@
       <div class="page">
         <div>
           <a class="prev" href="">&lt;&lt;</a>
-          <a class="num" href="">1</a>
-          <span class="current">2</span>
+            <span class="current">1</span>
+          <a class="num" href="">2</a>
           <a class="num" href="">3</a>
-          <a class="num" href="">489</a>
           <a class="next" href="">&gt;&gt;</a>
         </div>
       </div>

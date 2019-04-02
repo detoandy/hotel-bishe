@@ -13,8 +13,6 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 /**
- * @作者: 26706
- * @创建日期: 2018/9/7 15:12
  * @功能描述:
  */
 @Service

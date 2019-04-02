@@ -41,8 +41,6 @@
         </form>
       </div>
       <xblock>
-        <button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon"></i>批量删除</button>
-        <button class="layui-btn" th:onclick="|x_admin_show('添加房间','@{~/room/add}')|" ><i class="layui-icon"></i>添加</button>
         <span class="x-right" style="line-height:40px">共有数据：<span th:text="${result.totalSize}" /> 条</span>
       </xblock>
       <table class="layui-table">
@@ -65,17 +63,19 @@
             <td>
               <div class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id='2'><i class="layui-icon">&#xe605;</i></div>
             </td>
-            <td th:text="${room.id}">1</td>
-            <td th:text="${room.name}">admin</td>
-            <td th:text="${room.person}">18925139194</td>
-            <td th:text="${room.price}">18925139194</td>
-            <td th:text="${room.createTime}"></td>
-            <td th:text="${room.updateTime}">2017-01-01 11:11:42</td>
+            <td th:text="${approve.id}">1</td>
+            <td th:text="${approve.name}"></td>
+            <td th:text="${approve.count}"></td>
+            <td th:text="${approve.room}"></td>
+            <td th:text="${approve.tel}"></td>
+            <td th:text="${approve.bdate}"></td>
+            <td th:text="${approve.edate}"></td>
+            <td th:text="${approve.createTime}"></td>
             <td class="td-manage">
-              <a title="编辑"  th:onclick="|x_admin_show('编辑','@{~/room/edit/}'+${room.id})|" href="javascript:;">
+              <a title="编辑"  th:onclick="|x_admin_show('编辑','@{~/room/edit/}'+${approve.id})|" href="javascript:;">
                 <i class="layui-icon">&#xe642;</i>
               </a>
-              <a title="删除" th:onclick="|member_del(this,'${room.id}')|" href="javascript:;">
+              <a title="删除" th:onclick="|member_del(this,'${approve.id}')|" href="javascript:;">
                 <i class="layui-icon">&#xe640;</i>
               </a>
             </td>
@@ -85,10 +85,9 @@
       <div class="page">
         <div>
           <a class="prev" href="">&lt;&lt;</a>
-          <a class="num" href="">1</a>
-          <span class="current">2</span>
+            <span class="current">1</span>
+          <a class="num" href="">2</a>
           <a class="num" href="">3</a>
-          <a class="num" href="">489</a>
           <a class="next" href="">&gt;&gt;</a>
         </div>
       </div>
